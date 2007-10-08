@@ -11,6 +11,7 @@
 #include <string>
 
 class TH1F;
+class TFile;
 
 class PFBenchmarkAlgo
 {
@@ -20,11 +21,11 @@ class PFBenchmarkAlgo
   void doBenchmark();
   void createPlots();
   
-  std::string* outputRootFileName_;
+  std::string outputRootFileName_;
   edm::Handle<reco::GenJetCollection> genJets_;
   edm::Handle<reco::CaloJetCollection> recoCaloJets_;
   edm::Handle<reco::PFJetCollection> pfJets_;
-  
+  TFile *file_;
   TH1F *h_deltaETvisible_EHT_GEN_;
   TH1F *h_deltaETvisible_PF_GEN_;
 };

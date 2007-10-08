@@ -17,6 +17,10 @@
 
 #include <string>
 
+class PFBenchmarkAlgo;
+class TH1F;
+class TFile;
+
 class TauBenchmarkAnalyzer : public edm::EDAnalyzer {
  public:
   explicit TauBenchmarkAnalyzer(const edm::ParameterSet&);
@@ -32,11 +36,15 @@ class TauBenchmarkAnalyzer : public edm::EDAnalyzer {
   edm::Handle<reco::GenJetCollection> genCaloJets_;
   edm::Handle<reco::CaloJetCollection> recoCaloJets_;
   edm::Handle<reco::PFJetCollection> pfJets_;
-
+  
+  PFBenchmarkAlgo *benchmark;
   std::string outputRootFileName_;
   std::string recoCaloJetsLabel_;
   std::string pfJetsLabel_;
   std::string genCaloJetsLabel_;
+  TH1F *h_deltaETvisible_EHT_GEN_;
+  TH1F *h_deltaETvisible_PF_GEN_;
+  TFile *file_;
 };
 
 #endif
