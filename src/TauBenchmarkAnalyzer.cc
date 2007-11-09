@@ -87,7 +87,7 @@ void TauBenchmarkAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSet
   
   
   benchmark->outputRootFileName_=outputRootFileName_;
-  benchmark->recoCaloJets_=recoCaloJets_;
+  benchmark->caloJets_=recoCaloJets_;
   benchmark->pfJets_=pfJets_;
   benchmark->genJets_=genCaloJets_;
   benchmark->doBenchmark();

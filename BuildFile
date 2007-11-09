@@ -4,6 +4,7 @@
 <use name=FWCore/MessageLogger>
 <use name=FWCore/ParameterSet>
 <use name=DataFormats/ParticleFlowReco>
+<use name=SimDataFormats/HepMCProduct>
 <use name=root>
 <flags EDM_PLUGIN=1>
 <export>
