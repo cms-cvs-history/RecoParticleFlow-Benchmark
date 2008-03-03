@@ -1,8 +1,7 @@
 #ifndef RecoParticleFlow_Benchmark_TauBenchmarkAnalyzer_h
 #define RecoParticleFlow_Benchmark_TauBenchmarkAnalyzer_h
 
-#include "DQMServices/Core/interface/DaqMonitorBEInterface.h"
-#include "DQMServices/Daemon/interface/MonitorDaemon.h"
+#include "DQMServices/Core/interface/DQMStore.h"
 
 #include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/Framework/interface/EDAnalyzer.h"
@@ -25,7 +24,7 @@ public:
 private:
 
   // DAQ Tools
-  DaqMonitorBEInterface* dbe_;
+  DQMStore* dbe_;
   std::map<std::string, MonitorElement*> me;
 
   // Benchmark Tools
