@@ -367,9 +367,9 @@ void PFJetBenchmark::gettrue (const reco::Candidate* truth, double& true_Charged
   }  // end loop on constituents.
 }
 
-void PFJetBenchmark::getreco (const reco::Candidate* truth, double& true_ChargedHadEnergy, 
-			      double& true_NeutralHadEnergy, double& true_NeutralEmEnergy){
-
+void PFJetBenchmark::getreco (const reco::Candidate* recojet, double& reco_ChargedHadEnergy, 
+			      double& reco_NeutralHadEnergy, double& reco_NeutralEmEnergy){
+/*
   //    std::vector <const GenParticle*> mcparts = truth->getGenConstituents();
   //std::vector <const GenParticleCandidate*> mcparts = truth->getConstituents();
   std::vector <const reco::Candidate*> mcparts;
@@ -405,21 +405,21 @@ void PFJetBenchmark::getreco (const reco::Candidate* truth, double& true_Charged
       break;
     }  // end PDG switch		
   }  // end loop on constituents.
+*/  
+  const reco::PFJet* pjot = dynamic_cast<const PFJet*>(recojet);
   
-  const reco::PFJet* pjot = dynamic_cast<const PFJet*>(truth);
   if (pjot!=NULL) 
   {  
-  true_ChargedHadEnergy = pjot->chargedHadronEnergy(); 
-  true_NeutralHadEnergy = pjot->neutralHadronEnergy(); 
-  true_NeutralEmEnergy = pjot->neutralEmEnergy();
-	cout << "unnull!";
+  reco_ChargedHadEnergy = pjot->chargedHadronEnergy(); 
+  reco_NeutralHadEnergy = pjot->neutralHadronEnergy(); 
+  reco_NeutralEmEnergy = pjot->neutralEmEnergy();
   }
   else {
-  cout << "dyncast unmoeglich!!!";
-  cerr << "DYNCAST war nicht moeglich. Fehler in den Energie-Histogrammen zu erwarten!";
+  cerr << "DYNCAST was impossible. Be prepared to see errors in the energy histograms!";
   }
   
 }
+
 void PFJetBenchmark::printPFJet(const reco::PFJet* pfj){
   cout<<setiosflags(ios::right);
   cout<<setiosflags(ios::fixed);
